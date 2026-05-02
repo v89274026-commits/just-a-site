@@ -22,10 +22,11 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            /* Настройки для резкости и производительности */
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
             transform: translateZ(0);
-            filter: brightness(0.8);
+            filter: brightness(0.75) contrast(1.1);
         }
 
         header {
@@ -46,21 +47,21 @@
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
             border: 2px solid #d4af37;
             border-radius: 15px;
             padding: 30px;
             max-width: 600px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            animation: fadeIn 1.5s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
@@ -74,20 +75,16 @@
         .name-highlight {
             color: #d4af37;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; }
-            .content-box { padding: 20px; }
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
 <body>
 
+    <!-- Новый фон по твоей ссылке -->
     <video autoplay muted loop playsinline class="witcher-bg">
         <source src="https://github.com/user-attachments/assets/aa972124-6cac-4f6a-8039-8d42fabe6984" type="video/mp4">
-    
+        <img src="https://github.com/user-attachments/assets/aa972124-6cac-4f6a-8039-8d42fabe6984" alt="Witcher Background">
     </video>
 
     <header>
