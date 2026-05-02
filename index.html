@@ -3,97 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ведьмак 3: Каэр Морхен</title>
+    <title>Witcher 3 — Kaer Morhen</title>
     <style>
-        body {
+        /* Обнуляем отступы */
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            color: white;
-            overflow-x: hidden;
+            box-sizing: border-box;
         }
 
-        /* Фоновое видео на весь экран */
-        .witcher-bg {
+        body, html {
+            height: 100%;
+            overflow: hidden; /* Чтобы не было лишней прокрутки из-за видео */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+        }
+
+        /* Контейнер для видео-фона */
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             z-index: -1;
+            background-color: #000;
         }
 
-        /* Навигация */
-        header nav {
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Растягиваем без искажений */
+        }
+
+        /* Стили для контента */
+        header {
+            width: 100%;
             padding: 20px;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+            background: rgba(0, 0, 0, 0.6);
             text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            text-transform: uppercase;
+            border-bottom: 1px solid #d4af37;
         }
 
-        /* Основной контейнер с текстом */
+        nav {
+            color: #d4af37;
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            height: 80vh;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             padding: 40px;
-            border-radius: 15px;
-            max-width: 700px;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+            color: #fff;
+            max-width: 600px;
             text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(5px);
-            margin: 20px;
+            backdrop-filter: blur(8px); /* Красивое размытие фона за блоком */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #eee;
+            color: #f0f0f0;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        /* Твой стиль для имени */
         .name-highlight {
             color: #d4af37;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Видео-фон -->
-    <video autoplay muted loop playsinline class="witcher-bg">
-        <source src="https://github.com/v89274026-commits/just-a-site/issues/2#issue-4369357797" type="video/mp4">
-       
-    </video>
+    <!-- Фоновое видео -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://github.com/user-attachments/assets/03dc8681-90ad-42d2-89ce-91b73481b677" type="video/mp4">
+            <!-- Если видео не грузится, можно вставить запасную ссылку на гифку ниже -->
+        </video>
+    </div>
 
     <header>
         <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
     </header>
 
-
-
-
-/{img}:https://github.com/user-attachments/assets/dd60fbd8-c2f1-471e-997e-9c50715dcabf
-
-
-
-    
     <main>
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
