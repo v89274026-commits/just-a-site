@@ -2,45 +2,98 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>The Witcher 3 - My Project</title>
+    <!-- Тот самый тег для адаптивности под мобилки -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Witcher 3 - Mira's Project</title>
     <style>
-        /* Стили для анимированного фона */
         body {
             margin: 0;
             padding: 0;
-            /* Если у тебя GIF: */
-            background: url('witcher_bg.gif') no-repeat center center fixed; 
-            background-size: cover; /* Растягивает на весь экран */
-            
-            font-family: 'Arial', sans-serif;
+            /* Твой гиф-фон из Стима */
+            background: url('witcher_bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', sans-serif;
             color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Контейнер для контента, чтобы он не слипался */
-        .content {
-            position: relative;
-            z-index: 1;
-            background: rgba(0, 0, 0, 0.6); /* Полупрозрачный черный фон для читаемости текста */
-            margin: 50px auto;
-            padding: 30px;
-            width: 80%;
-            border: 2px solid #d4af37; /* Золотая рамка в стиле Ведьмака */
-            border-radius: 10px;
+        /* Семантическая шапка из твоих уроков */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+        }
+
+        /* Основной блок с адаптивной шириной */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .content-box {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            /* Адаптивность: на ноуте 60%, на телефоне 90% */
+            width: 90%;
+            max-width: 800px;
+            border: 1px solid #d4af37;
+            border-radius: 15px;
+            text-align: center;
+            /* Твоя тема с анимацией из урока 25.04 */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: #d4af37;
-            text-align: center;
             text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        /* Футер для контактов */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Чтобы на мобилках текст не был слишком мелким */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .content-box { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <h1>Добро пожаловать в Каэр Морхен</h1>
-        <p>Тут будет твое дз, описание прохождений Ведьмака и всё, что ты выучила в айти.</p>
-    </div>
+    <header>
+        <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
+    </header>
+
+    <main>
+        <section class="content-box">
+            <h1>Добро пожаловать в Каэр Морхен</h1>
+            <p>Меня зовут <span>Мира</span>, и это мой проект по IT.</p>
+            <p>Здесь я использую <strong>семантические теги</strong>, которые мы проходили: header, main и footer.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Проект Камиллы для AITU</p>
+    </footer>
 
 </body>
 </html>
