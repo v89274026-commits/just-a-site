@@ -3,68 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Witcher 3 - Camilla's Project</title>
+    <title>The Witcher 3 - Project Camilla</title>
     <style>
-        /* Убираем лишние отступы, как в твоих уроках */
+        /* Базовые настройки экрана */
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
+            width: 100%;
             background-color: #000;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            overflow: hidden; /* Чтобы страница не дергалась при анимации */
+            overflow: hidden;
         }
 
-        /* Настройка фона, чтобы он был ЗА интерфейсом */
+        /* Настройка видео-фона */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Самый важный параметр: уводит гифку назад */
+            z-index: -1;
         }
 
         .witcher-bg {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Растягивает на весь экран без искажений */
+            object-fit: cover;
+            filter: brightness(0.6); /* Немного затемняем, чтобы текст читался */
         }
 
-        /* Твой адаптивный интерфейс */
+        /* Контент сайта */
         main {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.65); /* Полупрозрачный фон для читаемости */
-            backdrop-filter: blur(10px); /* Трендовое размытие */
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
             border: 2px solid #d4af37;
             border-radius: 15px;
             padding: 40px;
-            max-width: 650px;
+            max-width: 600px;
             text-align: center;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            /* Анимация появления, которую ты учила 25 апреля */
-            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: #d4af37;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         .highlight {
@@ -75,26 +79,20 @@
 </head>
 <body>
 
-    <!-- Контейнер для цикличного фона -->
+    <!-- Ссылка на видео с твоего скриншота image_9843a2.jpg -->
     <div class="bg-container">
-        <!-- loop - делает цикл, muted - обязательно для автозапуска, playsinline - для мобилок -->
         <video autoplay muted loop playsinline class="witcher-bg">
-            <source src="witcher3.bg-gif" type="video/mp4">
-            <source src="witcher3.bg-gif" type="video/webm">
-            <!-- Если это всё же гифка, она подтянется здесь -->
-            <img src="witcher_bg.gif" alt="Kaer Morhen Background" class="witcher-bg">
+            <source src="bg-witcher3.mp4" type="video/mp4">
+          
         </video>
     </div>
 
-
-https://github.com/v89274026-commits/just-a-site/commit/1301c0df60461a9d46c52d5c79d575f8ea2ab3c7#diff-dda3f6c0a8e00fa02884cf5fa5325e053c9c05ccfe765ee8c8b45f55d56b5993L1
-    
     <main>
-        <section class="content-box">
-            <h1>Добро пожаловать в Каэр Морхен</h1>
+        <div class="content-box">
+            <h1>Проект Camilla</h1>
             <p>Привет! Меня зовут <span class="highlight">Камилла</span>.</p>
-            <p>Это мой адаптивный проект, где я собрала всё: семантику, контейнеры <span>div</span> и плавные анимации.</p>
-        </section>
+            <p>Это мой адаптивный проект с динамическим фоном. Теперь всё настроено правильно, а пути к файлам проверены до последней буквы.</p>
+        </div>
     </main>
 
 </body>
