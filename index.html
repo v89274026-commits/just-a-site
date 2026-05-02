@@ -9,85 +9,113 @@
             margin: 0;
             padding: 0;
             background-color: #000;
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             color: white;
             overflow: hidden;
         }
 
+        /* Оптимизированный фон */
         .witcher-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            /* Убрали crisp-edges, добавили мягкую коррекцию */
+            filter: brightness(0.6) contrast(1.1);
+            transition: opacity 1s ease-in;
+        }
+
+        /* Виньетка для глубины и скрытия артефактов по краям */
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            transform: translateZ(0);
-            filter: brightness(0.8);
+            background: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(0,0,0,0.7) 100%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             padding: 15px;
             text-align: center;
             border-bottom: 2px solid #d4af37;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        nav {
+            letter-spacing: 4px;
+            font-weight: bold;
+            color: #d4af37;
         }
 
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 60px);
+            height: calc(100vh - 70px);
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            border: 2px solid #d4af37;
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 600px;
-            width: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 550px;
             text-align: center;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 1.5s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: #d4af37;
             text-transform: uppercase;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            font-size: 1.7rem;
+            margin-top: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .name-highlight {
             color: #d4af37;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; }
-            .content-box { padding: 20px; }
+            h1 { font-size: 1.3rem; }
+            .content-box { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="overlay"></div>
+
     <video autoplay muted loop playsinline class="witcher-bg">
-        <source src="https://github.com/user-attachments/assets/a9c4a870-f200-4ab6-a0b6-4d5e8d5d6d84" type="video/mp4">
-        <img src="https://github.com/user-attachments/assets/a9c4a870-f200-4ab6-a0b6-4d5e8d5d6d84" alt="Kaer Morhen Background">
+        <source src="https://github.com" type="video/mp4">
     </video>
 
     <header>
@@ -98,9 +126,10 @@
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
             <p>Привет! Меня зовут <span class="name-highlight">Камилла</span>.</p>
-            <p>Это мой адаптивный сайт. Тут я объединила эстетику Ведьмака и всё, чему научилась на уроках: от семантики до CSS-анимаций.</p>
+            <p>Это мой адаптивный сайт. Тут я объединила эстетику Ведьмака и всё, чему научилась: от семантики до CSS-анимаций.</p>
         </section>
     </main>
 
 </body>
+</html>
 </html>
