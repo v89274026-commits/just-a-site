@@ -2,98 +2,87 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- Тот самый тег для адаптивности под мобилки -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Witcher 3 - Camilla Project</title>
+    <title>The Witcher 3 - Camilla's Project</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            /* Твой гиф-фон из Стима */
-            background: url('witcher_bg.gif') no-repeat center center fixed;
-            background-size: cover;
-            font-family: 'Segoe UI', sans-serif;
+            background: #000; /* Черный фон, пока грузится гифка */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Семантическая шапка из твоих уроков */
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            text-align: center;
-            border-bottom: 2px solid #d4af37;
+        /* Твой анимированный фон из Стима */
+        .witcher-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
 
-        /* Основной блок с адаптивной шириной */
+        /* Контейнер с контентом */
         main {
-            flex: 1;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
+            border: 2px solid #d4af37;
+            border-radius: 20px;
             padding: 40px;
-            /* Адаптивность: на ноуте 60%, на телефоне 90% */
-            width: 90%;
-            max-width: 800px;
-            border: 1px solid #d4af37;
-            border-radius: 15px;
+            max-width: 700px;
+            width: 100%;
             text-align: center;
-            /* Твоя тема с анимацией из урока 25.04 */
-            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            /* Анимация появления из твоего урока */
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
             color: #d4af37;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
         }
 
-        /* Футер для контактов */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            text-align: center;
-            padding: 10px;
-            font-size: 0.8rem;
+        p {
+            line-height: 1.6;
+            font-size: 1.1rem;
         }
 
-        /* Чтобы на мобилках текст не был слишком мелким */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5rem; }
-            .content-box { padding: 20px; }
+        .highlight {
+            color: #d4af37;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
-    </header>
+    <!-- Используем <img> вместо CSS фона для надежности -->
+    <img src="witcher_bg.gif" alt="Kaer Morhen" class="witcher-bg">
 
     <main>
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
-            <p>Меня зовут <span>Камилла</span>, и это мой проект по IT.</p>
-            <p>Здесь я использую <strong>семантические теги</strong>, которые мы проходили: header, main и footer.</p>
+            <p>Привет! Меня зовут <span class="highlight">Камилла</span>.</p>
+            <p>Это мой проект по IT, где я объединила эстетику Ведьмака 3 и всё, чему научилась на уроках: от семантики до CSS-анимаций.</p>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Проект Камиллы для AITU</p>
-    </footer>
 
 </body>
 </html>
