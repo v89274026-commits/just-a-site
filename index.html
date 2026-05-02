@@ -2,19 +2,20 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <!-- Тот самый тег для адаптивности под мобилки, который ты учила -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Witcher 3 - Camilla's Project</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: #000; /* Черный фон, пока грузится гифка */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             color: white;
             overflow-x: hidden;
         }
 
-        /* Твой анимированный фон из Стима */
+        /* Стили для анимированного фона */
         .witcher-bg {
             position: fixed;
             top: 0;
@@ -22,30 +23,38 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: -1;
+            z-index: -1; /* Уводит фон за текст */
         }
 
-        /* Контейнер с контентом */
+        /* Семантическая шапка из твоих уроков */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+        }
+
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: 80vh;
             padding: 20px;
         }
 
+        /* Контейнер с контентом */
         .content-box {
             background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
             border: 2px solid #d4af37;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 700px;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            /* Анимация появления из твоего урока */
-            animation: fadeIn 2.5s ease-in-out;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            /* Твоя анимация появления из урока 25.04 */
+            animation: fadeIn 2s ease-in-out;
         }
 
         @keyframes fadeIn {
@@ -56,31 +65,40 @@
         h1 {
             color: #d4af37;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin: 0 0 20px 0;
         }
 
-        p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
-
-        .highlight {
+        .name-highlight {
             color: #d4af37;
             font-weight: bold;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.4rem; }
+            .content-box { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Используем <img> вместо CSS фона для надежности -->
-    <img src="witcher_bg.gif" alt="Kaer Morhen" class="witcher-bg">
+    <!-- Блок для фона: сработает и как видео, и как гифка -->
+    <video autoplay muted loop playsinline class="witcher-bg">
+        <source src="witcher_bg.gif" type="video/mp4">
+        <source src="witcher_bg.gif" type="video/webm">
+        <img src="witcher_bg.gif" alt="Kaer Morhen">
+    </video>
+
+    <header>
+        <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
+    </header>
 
     <main>
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
-            <p>Привет! Меня зовут <span class="highlight">Камилла</span>.</p>
-            <p>Это мой проект по IT, где я объединила эстетику Ведьмака 3 и всё, чему научилась на уроках: от семантики до CSS-анимаций.</p>
+            <p>Привет! Меня зовут <span class="name-highlight">Камилла</span>.</p>
+            <p>Это мой адаптивный сайт. Тут я собрала всё, что мы проходили: семантику, контейнеры <span>div</span> и анимации.</p>
         </section>
     </main>
 
