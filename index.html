@@ -5,96 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Witcher 3 - Camilla's Project</title>
     <style>
-        /* Убираем лишние отступы, как в твоих уроках */
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            height: 100%;
             background-color: #000;
             font-family: 'Segoe UI', Tahoma, sans-serif;
             color: white;
-            overflow: hidden; /* Чтобы страница не дергалась при анимации */
+            overflow: hidden;
         }
 
-        /* Настройка фона, чтобы он был ЗА интерфейсом */
-        .bg-container {
+        .witcher-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Самый важный параметр: уводит гифку назад */
+            object-fit: cover;
+            z-index: -1;
+            /* Настройки для резкости и производительности */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            filter: brightness(0.75) contrast(1.1);
         }
 
-        .witcher-bg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Растягивает на весь экран без искажений */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Твой адаптивный интерфейс */
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: calc(100vh - 60px);
             padding: 20px;
-            box-sizing: border-box;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.65); /* Полупрозрачный фон для читаемости */
-            backdrop-filter: blur(10px); /* Трендовое размытие */
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
             border: 2px solid #d4af37;
             border-radius: 15px;
-            padding: 40px;
-            max-width: 650px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
             text-align: center;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            /* Анимация появления, которую ты учила 25 апреля */
-            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            animation: fadeIn 1.5s ease-out;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
+            from { opacity: 0; transform: scale(0.98); }
             to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
             color: #d4af37;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 1.8rem;
             margin-bottom: 20px;
+            letter-spacing: 2px;
         }
 
-        .highlight {
+        .name-highlight {
             color: #d4af37;
             font-weight: bold;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
         }
     </style>
 </head>
 <body>
+
+    <!-- Новый фон по твоей ссылке -->
+    <video autoplay muted loop playsinline class="witcher-bg">
+  
     
-    <!-- Контейнер для цикличного фона -->
-    <div class="bg-container">
-        <!-- loop - делает цикл, muted - обязательно для автозапуска, playsinline - для мобилок -->
-        <video autoplay muted loop playsinline class="witcher-bg">
-            <source src="witcher_bg.gif" type="video/mp4">
-            <source src="witcher_bg.gif" type="video/webm">
-            <!-- Если это всё же гифка, она подтянется здесь -->
-            <img src="witcher_bg.gif" alt="Kaer Morhen Background" class="witcher-bg">
-        </video>
-    </div>
+        
+    https://github.com/user-attachments/assets/b297d410-0456-48e2-bc78-365779af7c30 
 
 
- https://github.com/user-attachments/assets/33384429-1a0c-4276-ae04-759ba8b954ef
 
+        
+    </video>
+
+    <header>
+        <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
+    </header>
 
     <main>
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
-            <p>Привет! Меня зовут <span class="highlight">Камилла</span>.</p>
-            <p>Это мой адаптивный проект, где я собрала всё: семантику, контейнеры <span>div</span> и плавные анимации.</p>
+            <p>Привет! Меня зовут <span class="name-highlight">Камилла</span>.</p>
+            <p>Это мой адаптивный сайт. Тут я объединила эстетику Ведьмака и всё, чему научилась на уроках: от семантики до CSS-анимаций.</p>
         </section>
     </main>
 
