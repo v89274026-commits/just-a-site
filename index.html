@@ -3,113 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Witcher 3 — Kaer Morhen</title>
+    <title>The Witcher 3 - Camilla's Project</title>
     <style>
-        /* Обнуляем отступы */
-        * {
+        /* Убираем лишние отступы, как в твоих уроках */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
             height: 100%;
-            overflow: hidden; /* Чтобы не было лишней прокрутки из-за видео */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #000;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            color: white;
+            overflow: hidden; /* Чтобы страница не дергалась при анимации */
         }
 
-        /* Контейнер для видео-фона */
-        .video-background {
+        /* Настройка фона, чтобы он был ЗА интерфейсом */
+        .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            background-color: #000;
+            z-index: -1; /* Самый важный параметр: уводит гифку назад */
         }
 
-        .video-background video {
+        .witcher-bg {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Растягиваем без искажений */
+            object-fit: cover; /* Растягивает на весь экран без искажений */
         }
 
-        /* Стили для контента */
-        header {
-            width: 100%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            text-align: center;
-            border-bottom: 1px solid #d4af37;
-        }
-
-        nav {
-            color: #d4af37;
-            font-size: 1.5rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
+        /* Твой адаптивный интерфейс */
         main {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .content-box {
-            background: rgba(0, 0, 0, 0.75);
-            padding: 40px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.65); /* Полупрозрачный фон для читаемости */
+            backdrop-filter: blur(10px); /* Трендовое размытие */
             border: 2px solid #d4af37;
-            color: #fff;
-            max-width: 600px;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 650px;
             text-align: center;
-            backdrop-filter: blur(8px); /* Красивое размытие фона за блоком */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            /* Анимация появления, которую ты учила 25 апреля */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
-            font-size: 2.5rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             margin-bottom: 20px;
-            color: #f0f0f0;
         }
 
-        .name-highlight {
+        .highlight {
             color: #d4af37;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-        }
-
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Фоновое видео -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-    <img src="https://github.com/user-attachments/assets/dd60fbd8-c2f1-471e-997e-9c50715dcabf" alt="Фон Каэр Морхен" style="width:100%; height:auto;">
-            <!-- Если видео не грузится, можно вставить запасную ссылку на гифку ниже -->
+    <!-- Контейнер для цикличного фона -->
+    <div class="bg-container">
+        <!-- loop - делает цикл, muted - обязательно для автозапуска, playsinline - для мобилок -->
+        <video autoplay muted loop playsinline class="witcher-bg">
+            <source src="witcher_bg.gif" type="video/mp4">
+            <source src="witcher_bg.gif" type="video/webm">
+            <!-- Если это всё же гифка, она подтянется здесь -->
+            <img src="witcher_bg.gif" alt="Kaer Morhen Background" class="witcher-bg">
         </video>
     </div>
-
-    <header>
-        <nav>ВЕДЬМАК 3: ДИКАЯ ОХОТА</nav>
-    </header>
 
     <main>
         <section class="content-box">
             <h1>Добро пожаловать в Каэр Морхен</h1>
-            <p>Привет! Меня зовут <span class="name-highlight">Камилла</span>.</p>
-            <p>Это мой адаптивный сайт. Тут я объединила эстетику Ведьмака и всё, чему научилась на уроках.</p>
+            <p>Привет! Меня зовут <span class="highlight">Камилла</span>.</p>
+            <p>Это мой адаптивный проект, где я собрала всё: семантику, контейнеры <span>div</span> и плавные анимации.</p>
         </section>
     </main>
 
